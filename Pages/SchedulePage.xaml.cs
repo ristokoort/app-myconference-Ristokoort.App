@@ -1,5 +1,4 @@
 namespace app_myconference.Pages;
-
 public partial class ScheduleDay1Page : SchedulePage
 {
     public ScheduleDay1Page(ScheduleViewModel vm) : base()
@@ -33,10 +32,12 @@ public partial class SchedulePage : ContentPage
         if (VM.Schedule.Count == 0)
             await VM.LoadDataCommand.ExecuteAsync(null);
     }
+
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
     }
+
 }
 
 
