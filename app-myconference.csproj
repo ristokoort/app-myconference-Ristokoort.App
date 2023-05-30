@@ -16,13 +16,13 @@
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.app_myconference</ApplicationId>
-		<ApplicationIdGuid>F10C2CB1-27D9-4411-A0BA-A75F1674C570</ApplicationIdGuid>
+		<ApplicationIdGuid>3A1E831A-7969-421A-A7F3-E672A9E32417</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
-		<WindowsPackageType Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">None</WindowsPackageType>
 
+		<WindowsPackageType Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">None</WindowsPackageType>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -56,7 +56,22 @@
 		<None Remove="Resources\Images\tab_schedule.svg" />
 		<None Remove="Resources\Images\tab_sponsors.svg" />
 	</ItemGroup>
-	
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+		<PackageReference Include="Jeffsum" Version="0.0.2-beta" />
+		<PackageReference Include="Microsoft.UI.Xaml" Version="2.8.2" />
+		<PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Compile Update="Pages\AgendaPage.xaml.cs">
+			<DependentUpon>AgendaPage.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+
 	<ItemGroup>
 		<MauiXaml Update="Pages\AgendaPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
@@ -67,23 +82,6 @@
 		<MauiXaml Update="Pages\SponsorsPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-	  <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\AgendaPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SchedulePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SponsorsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
