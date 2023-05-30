@@ -30,7 +30,7 @@ public partial class SchedulePage : ContentPage
     {
         base.OnAppearing();
         if (VM.Schedule.Count == 0)
-            await VM.LoadDataCommand.ExecuteAsync(null);
+             await VM.LoadDataCommand.ExecuteAsync(null);
     }
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
